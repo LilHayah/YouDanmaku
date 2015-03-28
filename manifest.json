@@ -1,16 +1,18 @@
 {
-    "manifest_version": 1,
     "name": "YouDanmaku",
-    "version": "0.0.1",
-    "description": "enable Danmaku comment on YouTube",
-    "background_page": "background.html",
-    "content_scripts": [{
-        "matches": ["https://www.youtube.com/watch?v="],
-        "css": [""],
-        "js": [""],
-        "run_at": "document_start"
-    }],
+    "description": "Enable Danmaku comments on YouTube",
+    "version": "1.0",
     "permissions": [
-        "https://www.youtube.com/"
-    ]
+        "https://www.youtube.com/*", "activeTab"
+    ],
+    "background": "background.html",
+    "content_scripts": [{
+        "matches": ["https://www.youtube.com/*"],
+        "js": ["jquery-2.1.3.min.js", "main.js"],
+        "run_at": "document_end"
+    }],
+    "browser_action": {
+        "default_title": "Enable Danmaku comments on YouTube"
+    },
+    "manifest_version": 2
 }
