@@ -1,4 +1,5 @@
 {
+    "manifest_version": 1,
     "name": "YouDanmaku",
     "version": "0.0.1",
     "description": "enable Danmaku comment on YouTube",
