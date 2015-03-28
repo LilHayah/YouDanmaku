@@ -1,0 +1,9 @@
+{
+    "name": "YouDanmaku",
+    "version": "0.0.1",
+    "description": "enable Danmaku comment on YouTube",
+    "background_page": "background.html",
+    "permissions": [
+        "https://www.youtube.com/"
+    ]
+}
