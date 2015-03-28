@@ -4,6 +4,12 @@
     "version": "0.0.1",
     "description": "enable Danmaku comment on YouTube",
     "background_page": "background.html",
+    "content_scripts": [{
+        "matches": ["https://www.youtube.com/watch?v="],
+        "css": [""],
+        "js": [""],
+        "run_at": "document_start"
+    }],
     "permissions": [
         "https://www.youtube.com/"
     ]
