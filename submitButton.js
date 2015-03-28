@@ -27,6 +27,9 @@ function addButton(){
 	btnTitle.setAttribute('class', 'yt-uix-button-content');
 	btn.appendChild(btnTitle);
 	container.appendChild(btn);
+	// event listner for button click to send comments
 }
+
+// send comment function
 
 window.setInterval(checkButton,1000);
