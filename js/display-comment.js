@@ -1,34 +1,53 @@
-var divFloat = document.createElement("div");
-divFloat.setAttribute("id","floatDiv");
-var t = document.createTextNode("Comment is best thing");
-divFloat.appendChild(t);
-document.body.appendChild(divFloat);
+function displayCommment(commentText) {
+
+    var commentPiece = document.createElement("span");
+    var t = document.createTextNode(commentText);
+    commentPiece.appendChild(t);
+    $(commentPiece).css({
+        "position": "absolute",
+        "width": "auto",
+        "max-width": "250px",
+        "white-space": "nowrap",
+        "color": "red",
+        "height": "20px",
+        "left": "0",
+        "top": "0",
+        "cursor": "pointer",
+        "font-weight": "600",
+        "z-index": "300000"
+    })
+    document.body.appendChild(commentPiece);
+
+    var obj = commentPiece;
+    //var obj = new Comment(raw_comment);
+
+    var step = 1;
+    var delay = 5;
+    // var obj = document.getElementById("floatDiv");
+    var videoField = document.getElementsByClassName("html5-video-container")[0];
+    var rect = videoField.getBoundingClientRect();
+    var xPos = rect.right - obj.offsetWidth,
+        yPos = Math.floor((Math.random() * videoField.offsetHeight) + rect.top);
+
+    function rollMethod() {
+        var minX = rect.left;
+        var minY = rect.top;
+        var maxX, maxY;
+        maxX = videoField.offsetWidth;
+        maxY = videoField.offsetHeight;
+        obj.style.left = xPos + "px";
+        obj.style.top = yPos + "px";
+        xPos = xPos - step;
+        if (xPos < minX) {
+            $(obj).remove()
+        }
+
+    }
 
 
 
- /*var commentShowing = "<div id='floatDiv'><div id='floatClose'>Comment</div></div>";
-  $(commentShowing).insertBefore("#watch-discussion");*/
-  
-   var step = 1 ;
-   var delay = 5 ;
-   var obj = document.getElementById("floatDiv");
-   var videoField = document.getElementsByClassName("html5-video-container")[0];
-   var rect = videoField.getBoundingClientRect();
-   var xPos = rect.right-obj.offsetWidth,yPos = 200; 
+    var floatGo = setInterval(rollMethod, delay);
 
-   function rollMethod() { 
-       var minX=rect.left;
-       var minY=0;
-       var maxX,maxY;
-       maxX= videoField.offsetWidth;
-       maxY= videoField.offsetHeight;
-       obj.style.left = xPos + "px";
-       obj.style.top = yPos + "px";
-       xPos = xPos - step;    
-       if (xPos < minX){ $(obj).remove()}
- 
-   }
+}
 
-    var floatGo= setInterval(rollMethod,delay); 
- 
-    window.onload=floatGo;
+window.onload = displayCommment("Comment is the best thing");
