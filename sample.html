@@ -1,0 +1,19 @@
+<html>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+    function dataCallback(data) {
+    	var comments = [];
+        console.log(data);
+        $.each(data, function(time,comment) {
+        	temp = [comment,Number(time)];
+        	comments.push(temp);
+
+        })
+        //console.log(comments[0]);
+        console.log(comments);
+    }
+</script>
+<script type="text/javascript" src="https://youtubecomment.azurewebsites.net/youtube/Data/67EtiZRdKIQ.json"></script>
+
+</html>
