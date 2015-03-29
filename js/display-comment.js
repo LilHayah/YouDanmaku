@@ -2,7 +2,7 @@ var divFloat = document.createElement("div");
 divFloat.setAttribute("id","floatDiv")
 var divClose = document.createElement("div");
 divClose.setAttribute("id","floatClose");
-var t = document.createTextNode("Comment");
+var t = document.createTextNode("Comment is best thing");
 divClose.appendChild(t);
 divFloat.appendChild( divClose );
 document.body.appendChild(divFloat);
@@ -11,24 +11,27 @@ document.body.appendChild(divFloat);
 
  /*var commentShowing = "<div id='floatDiv'><div id='floatClose'>Comment</div></div>";
   $(commentShowing).insertBefore("#watch-discussion");*/
- var xPos = 50,yPos = 200; 
+  
    var step = 1 ;
    var delay = 5 ;
-   var obj=document.getElementById("floatDiv");
+   var obj = document.getElementById("floatDiv");
+   var videoField = document.getElementsByClassName("html5-video-container")[0];
+   var rect = videoField.getBoundingClientRect();
+   var xPos = rect.right,yPos = 200; 
+
    function rollMethod() { 
-       var minX=minY=0;
+       var minX=rect.left + obj.offsetWidth;
+       var minY=0;
        var maxX,maxY;
-       maxX= document.documentElement.clientWidth-obj.offsetWidth;
-       maxY= document.documentElement.clientHeight-obj.offsetHeight;
-       obj.style.left = xPos - document.body.scrollLeft+"px" ;
-       obj.style.top = yPos + document.body.scrollTop+"px" ;
+       maxX= videoField.offsetWidth;
+       maxY= videoField.offsetHeight;
+       obj.style.left = xPos + "px";
+       obj.style.top = yPos + "px";
        xPos = xPos - step;    
-       if (xPos < minX){ xPos=maxX;}
+       if (xPos < minX){ $(obj).remove()}
  
    } 
 
     var floatGo= setInterval(rollMethod,delay); 
-    var shut=document.getElementById("floatClose") ;
-    shut.onclick=function(){
-        obj.style.display='none';};
+ 
     window.onload=floatGo;
