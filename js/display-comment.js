@@ -1,10 +1,7 @@
 var divFloat = document.createElement("div");
-divFloat.setAttribute("id","floatDiv")
-var divClose = document.createElement("div");
-divClose.setAttribute("id","floatClose");
+divFloat.setAttribute("id","floatDiv");
 var t = document.createTextNode("Comment is best thing");
-divClose.appendChild(t);
-divFloat.appendChild( divClose );
+divFloat.appendChild(t);
 document.body.appendChild(divFloat);
 
 
@@ -17,10 +14,10 @@ document.body.appendChild(divFloat);
    var obj = document.getElementById("floatDiv");
    var videoField = document.getElementsByClassName("html5-video-container")[0];
    var rect = videoField.getBoundingClientRect();
-   var xPos = rect.right,yPos = 200; 
+   var xPos = rect.right-obj.offsetWidth,yPos = 200; 
 
    function rollMethod() { 
-       var minX=rect.left + obj.offsetWidth;
+       var minX=rect.left;
        var minY=0;
        var maxX,maxY;
        maxX= videoField.offsetWidth;
@@ -30,7 +27,7 @@ document.body.appendChild(divFloat);
        xPos = xPos - step;    
        if (xPos < minX){ $(obj).remove()}
  
-   } 
+   }
 
     var floatGo= setInterval(rollMethod,delay); 
  

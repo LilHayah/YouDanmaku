@@ -1,22 +1,14 @@
 #floatDiv{
    position: absolute;
-   padding: 10px;
    width: auto;
    max-width:250px;
    white-space:nowrap;
-}
-#floatClose{
    color: red;
    height: 20px;
-   width: auto;
-   max-width:250px;
-   position: absolute; 
-   right:0;
+   left:0;
    top: 0;
    cursor: pointer;
    font-weight: 600;
    z-index:300000;
    white-space:nowrap;
 }
-
-.Text
