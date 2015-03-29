@@ -73,4 +73,12 @@ function displayer() {
     danmaku.ajaxLoadComments();
 }
 
+var timeout = null;
+document.addEventListener("DOMSubtreeModified", function() {
+if (timeout) {
+    clearTimeout(timeout);
+}
+timeout = setTimeout(checkURL, 500);
+}, false);
+
 window.onload = displayCommment("Comment is the best thing");
