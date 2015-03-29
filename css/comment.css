@@ -1,0 +1,14 @@
+#floatDiv{
+   position: absolute;
+   padding: 10px;
+}
+#floatClose{
+   color: red;
+   height: 20px;
+   width: 20px;
+   position: absolute; 
+   right:30px;
+   top: 0;
+   cursor: pointer;
+   font-weight: 600;
+}

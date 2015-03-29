@@ -5,11 +5,10 @@
     "permissions": [
         "https://www.youtube.com/*", "activeTab"
     ],
-    "background": "background.html",
     "content_scripts": [{
         "matches": ["https://www.youtube.com/*"],
-        "js": ["jquery-2.1.3.min.js", "main.js"],
-        "css": ["main.css"],
+        "js": ["jquery-2.1.3.min.js", "main.js","js/display-comment.js"],
+        "css": ["main.css","css/comment.css"],
         "run_at": "document_end"
     }],
     "browser_action": {
