@@ -9,11 +9,11 @@ document.body.appendChild(divFloat);
 
 
 
- var commentShowing = "<div id='floatDiv'><div id='floatClose'>Close</div></div>";
-  $(commentShowing).insertBefore("#watch-discussion");
- var xPos = 50,yPos = 30; 
+ /*var commentShowing = "<div id='floatDiv'><div id='floatClose'>Comment</div></div>";
+  $(commentShowing).insertBefore("#watch-discussion");*/
+ var xPos = 50,yPos = 200; 
    var step = 1 ;
-   var delay = 10 ;
+   var delay = 5 ;
    var obj=document.getElementById("floatDiv");
    function rollMethod() { 
        var minX=minY=0;
