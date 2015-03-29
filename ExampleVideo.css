@@ -1,0 +1,148 @@
+#miniyoutube {
+  width: 310px;
+  height: 175px;
+  position: fixed;
+  left: 5px;
+  top: 55px;
+  z-index: 1000;
+  background-color: black;
+}
+
+.alert {
+  position: fixed;
+  width: 90%;
+  top: 60px;
+  z-index: 1000;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  margin-left: 3.25%;
+  text-align: center;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.mnyt-progress-wrap {
+  background: #cc181e;
+  overflow: hidden;
+  position: absolute;
+  bottom: -1px;
+}
+
+.mnyt-progress-bar {
+  background: #ddd;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.mnyt-progress {
+  width: 100%;
+  height: 1px;
+}
+
+.mnyt-video {
+  top: 0px !important;
+  left: 0px !important;
+}
+
+.draggable {
+  position: relative;
+}
+
+.resizer {
+  width: 50px;
+  height: 50px;
+  position:absolute;
+  z-index: 1001;
+}
+
+#mnyt-br {
+  right: 0;
+  bottom: 0;
+  cursor: se-resize;
+}
+
+.resize-icon {
+  right: -3px;
+  bottom: -3px;
+  position:absolute;
+  z-index: 1001;
+  cursor: se-resize;
+}
+
+.mnyt-control-icons {
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding: 3px;
+  z-index: 1001;
+  display: none;
+}
+
+.mnyt-size-button {
+  display: block;
+  margin-bottom: 3px;
+
+  width: 30px;
+  height: 30px;
+  background: rgba(23,35,34,.75);
+  border-radius: 0.5em;
+  border: 0;
+  cursor: pointer;
+
+  font-size: 1em;
+  text-align: center;
+  font-family: 'Helvetica Neue',Helvetica,Arial;
+  transition: background-color 40ms;
+  font-weight: bold;
+  text-decoration: none;
+  color:#ffffff;
+}
+
+.mnyt-size-button img {
+  vertical-align: middle;
+}
+
+.mnyt-size-button:hover {
+  background-color: #cc181e;
+}
+
+.mnyt-pin-label {
+  position: absolute;
+  top: 3px;
+  left: 40px;
+  width: 150px;
+  height: 30px;
+  background: rgba(23,35,34,.75);
+  border-radius: 0.5em;
+  border: 0;
+  cursor: pointer;
+
+  font-size: 1em;
+  text-align: center;
+  font-family: 'Helvetica Neue',Helvetica,Arial;
+  font-weight: bold;
+  text-decoration: none;
+  color:#ffffff;
+  line-height: 30px;
+  transition: opacity 150ms ease-out,transform 150ms ease-out;
+  display: none;
+}
+
+.mnyt-pin-label::before {
+  position: absolute;
+  left: -0.5em;
+  top: 50%;
+  margin-top: -.5em;
+  border-top: .5em solid transparent;
+  border-bottom: .5em solid transparent;
+  border-right: .5em solid rgba(23,35,34,.75);
+  content: '';
+}
