@@ -50,4 +50,27 @@ function displayCommment(commentText) {
 
 }
 
+var danmaku = {
+    comment_datas: [],
+    ajaxLoadComments: function() {
+        var videoId = location.href.substr(location.href.indexOf("=") + 1);
+        var data = {
+            call   : "loadComments",
+            videoID: videoId 
+        };
+        var self = this;
+        chrome.extension.sendRequest(data, function(response) {
+            self.comment_datas = JSON.parse(response.result);
+        });
+    }
+//    start: function() {
+
+    }
+}
+
+
+function displayer() {
+    danmaku.ajaxLoadComments();
+}
+
 window.onload = displayCommment("Comment is the best thing");

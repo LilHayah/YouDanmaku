@@ -1,0 +1,64 @@
+<html>
+    <script type="text/javascript">
+
+        var SimpleAjax = {
+            _serialize: function(o){
+                var result = [];
+                for(var p in o){
+                    if(o.hasOwnProperty(p)){
+                        result.push(p + "=" + o[p]);
+                    }
+                }
+                return result.join("&");
+            },
+            ajax: function(method, url, data, callback){
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4){
+                        if(xhr.status>=200 && xhr.status<300 || xhr.status==304){
+                            callback(xhr.responseText);
+                        }
+                    }
+                }
+                if(method == "get"){
+                    xhr.open("get", url, true);
+                    xhr.send(null);
+                } else if (method == "post") {
+                    xhr.open("post", url, true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.send(SimpleAjax._serialize(data));
+                }
+            },
+            get: function(url, callback){
+                SimpleAjax.ajax("get", url, null, callback);
+            },
+            post: function(url, data, callback){
+                SimpleAjax.ajax("post", url, data, callback);
+            }
+        };
+
+        // var BASE_URL = "http://localhost:8080";
+        var BASE_URL = "https://youtubecomment.azurewebsites.net/youtube/Data/";
+
+        function loadComments(videoID, sendResponse){
+            SimpleAjax.get(BASE_URL + videoID, function(data){
+                sendResponse({ result: data });
+            });
+        }
+
+        function addComment(data, sendResponse){
+            SimpleAjax.post(BASE_URL + "/comment/add", data, function(data){    
+                sendResponse({ result: data })
+            });
+        }
+
+        chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+            if (request.call == "loadComments"){
+                loadComments(request.videoID, sendResponse);
+            } else if (request.call == "addComment"){
+                addComment(request.data, sendResponse);
+            }
+        });
+    </script>
+</html>
