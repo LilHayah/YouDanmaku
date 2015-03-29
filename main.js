@@ -9,8 +9,34 @@ function checkURL() {
 }
 
 function insert_comment_block() {
-    var textbox = "<div id ='comment_block' class='yt-card'><form id='comment-form'><textarea id='comment' /><input type='submit' value='Post'></form></div>";
+    var textbox = "<div id ='comment_block' class='yt-card'><form id='comment_form'><textarea id='comment' /><input type='submit' id='submit' value='Post'></form></div>";
     $(textbox).insertBefore("#watch-discussion");
+
+    $("#submit").on("click", function(e) {
+        e.preventDefault();
+        var videoId = location.href.substr(location.href.indexOf("=") + 1);
+        var timestamp = document.getElementsByClassName("ytp-time-current")[0].innerHTML;
+        var comment = document.getElementById("comment").value;
+
+        if (comment.length > 140) {
+            alert("Too many characters!");
+            return false;
+        }
+        var dataString = 'VideoId='+ videoId + '&Timestamp='+ timestamp + '&Comment='+ comment;
+        
+        $.ajax({
+            type: "POST",
+            url: "https://youtubecomment.azurewebsites.net/youtube/upload.php",
+            data: dataString,
+            cache: false,
+            success: function(response)
+            {
+                $("#comment_form").html(response);
+            }
+        });
+        
+        return false
+    });
 }
 
 var timeout = null;
@@ -20,3 +46,4 @@ document.addEventListener("DOMSubtreeModified", function() {
     }
     timeout = setTimeout(checkURL, 500);
 }, false);
+
