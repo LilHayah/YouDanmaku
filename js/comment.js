@@ -1,4 +1,4 @@
-var comments = [["comment 1", 15], ["comment 2", 10], ["comment 3", 20]];
+var comments = [["We Rock!", 2],["comment 1", 15], ["comment 2", 10], ["comment 2", 35],["comment 2", 25],["comment 2", 27],["comment 2", 43],["comment 2", 28],["comment 2", 38],["comment 2", 39],["comment 2", 46],["comment 2", 52],["comment 2", 22],["comment 3", 21],["hello Hack PSU",5],["happy Hack",8],["hello Hack PSU",17]];
 var i = 0;
 flag = false;
 
@@ -63,7 +63,7 @@ function displayCommment(commentText) {
         "top": "0",
         "cursor": "pointer",
         "font-weight": "600",
-        "font-size": "18",
+        "font-size": "48",
         "z-index": "300000"
     })
     document.body.appendChild(commentPiece);
@@ -98,7 +98,7 @@ function displayCommment(commentText) {
     var floatGo = setInterval(rollMethod, delay);
 
 }
-
+/*
 var danmaku = {
     comment_datas: [],
     ajaxLoadComments: function() {
@@ -114,11 +114,13 @@ var danmaku = {
     }
 //    start: function() {}
 }
+*/
 
+/*
 
 function displayer() {
     danmaku.ajaxLoadComments();
-}
+}*/
 
 function insert_comment_block() {
     var textbox = "<div id ='comment_block' class='yt-card'><form id='comment_form'><textarea id='comment' /><input type='submit' id='submit' value='Post'></form></div>";
