@@ -1,5 +1,5 @@
 **YouDanmaku**    
-- a Chrome extension enabling danmaku comments on YouTube.
+A Chrome extension enabling danmaku comments on YouTube, started in HackPSU 2015.
 
 
 ----------
