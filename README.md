@@ -1,6 +1,7 @@
 **YouDanmaku**    
 A Chrome extension enabling danmaku comments on YouTube, started in HackPSU 2015.
 
+![Screenshot](/images/screenshot.png)
 
 ----------
 How to run on your Chrome?   

@@ -1,4 +1,4 @@
-var comments = [["We Rock!", 2],["comment 1", 15], ["comment 2", 10], ["comment 2", 35],["comment 2", 25],["comment 2", 27],["comment 2", 43],["comment 2", 28],["comment 2", 38],["comment 2", 39],["comment 2", 46],["comment 2", 52],["comment 2", 22],["comment 3", 21],["hello Hack PSU",5],["happy Hack",8],["hello Hack PSU",17]];
+var comments = [["YouDanmaku", 2],["I am really enjoying all of these comments", 26], ["danmaku looks great", 22], ["comment 2", 35],["中文测试 Chinese", 25],["¡Hola, Mundo!", 23],["Hello world", 22],["ユーチューブ動画", 23],["comment 2", 38],["comment 2", 39],["comment 2", 46],["comment 2", 52],["comment 2", 22],["comment 3", 21],["hello Hack PSU",5],["happy Hack",8],["hello Hack PSU",17]];
 var i = 0;
 flag = false;
 
@@ -52,12 +52,13 @@ function displayCommment(commentText) {
     var commentPiece = document.createElement("span");
     var t = document.createTextNode(commentText);
     commentPiece.appendChild(t);
+    var color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6)
     $(commentPiece).css({
         "position": "absolute",
         "width": "auto",
         "max-width": "250px",
         "white-space": "nowrap",
-        "color": "red",
+        "color": color,
         "height": "20px",
         "left": "0",
         "top": "0",
